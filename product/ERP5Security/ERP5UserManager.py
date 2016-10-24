@@ -372,7 +372,14 @@ class ERP5UserManager(BasePlugin):
     if isinstance(login, list):
       login = tuple(login)
     elif not isinstance(login, tuple):
-      login = str(login)
+      if getattr(login, 'getIdOrUserName', None):
+        # XXX Do we still have such usercase ?
+        # testGetUserByLogin in testERP5Security says:
+        # #  PreferenceTool pass a user as parameter
+        # but not sure if it is still used in such way.
+        login = login.getIdOrUserName()
+      else:
+        login = str(login)
     try:
       return getUserByLogin(self.getPortalObject(), login, exact_match)
     except ConflictError:

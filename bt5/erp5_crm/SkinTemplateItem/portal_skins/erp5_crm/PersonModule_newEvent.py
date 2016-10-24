@@ -12,7 +12,7 @@ if not person_list:
 
 # Find authenticated user
 user = context.portal_membership.getAuthenticatedMember()
-user_person = context.portal_catalog.getResultValue(portal_type='Person', reference=str(user))
+user_person = context.portal_catalog.getResultValue(portal_type='Person', reference=user.getIdOrUserName())
 
 event_list = []
 # For every person, create an event
