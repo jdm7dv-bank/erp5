@@ -20,7 +20,7 @@ def getRealContext():
 #Allow user to create a request with it's username
 member = context.portal_membership.getAuthenticatedMember()
 if member is not None \
-   and member.getUserName() == value \
+   and member.getIdOrUserName() == value \
    and value != "Anonymous User":
   return True
 

@@ -19,7 +19,7 @@ portal = context.getPortalObject()
 # Be sure that the company haven't submitted the current form yet
 # If not do not permit to submit another one
 portal_type='Declaration TVA'
-user_name = portal.portal_membership.getAuthenticatedMember().getUserName()
+user_name = portal.portal_membership.getAuthenticatedMember().getIdOrUserName()
 user_obj = portal.ERP5Site_getPersonObjectFromUserName(user_name)
 if user_obj:
   vat_code = user_obj.getCareerSubordinationValue().getVatCode()

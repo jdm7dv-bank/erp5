@@ -1,5 +1,5 @@
 if user_id is None:
-  user_id = context.portal_membership.getAuthenticatedMember().getUserName()
+  user_id = context.portal_membership.getAuthenticatedMember().getIdOrUserName()
 person_list = context.acl_users.erp5_users.getUserByLogin(user_id)
 if not person_list:
   return None

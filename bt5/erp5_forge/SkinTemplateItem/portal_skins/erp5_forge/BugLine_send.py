@@ -15,7 +15,7 @@ if from_url is None:
     else:
       from_url = sender.getDefaultEmailText()
   else:
-    user = context.portal_membership.getAuthenticatedMember().getUserName()
+    user = context.portal_membership.getAuthenticatedMember().getIdOrUserName()
     from_url = '"%s" <%s>' % (user,
                               context.email_from_address)
 # Return-Path

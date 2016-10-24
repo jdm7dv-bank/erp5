@@ -17,7 +17,7 @@ owner = object.getViewPermissionOwner()
 owner_value = portal_catalog.getResultValue(portal_type='Person', reference=owner)
 
 # Get the authenticated user
-user = portal.portal_membership.getAuthenticatedMember().getUserName()
+user = portal.portal_membership.getAuthenticatedMember().getIdOrUserName()
 user_value = portal_catalog.getResultValue(portal_type='Person', reference=user)
 
 # If users are not defined, we need to log and return

@@ -1,6 +1,6 @@
 # get the current logged user site
 if user_id is None:
-  login = context.portal_membership.getAuthenticatedMember().getUserName()
+  login = context.portal_membership.getAuthenticatedMember().getIdOrUserName()
 else:
   login = user_id
 
