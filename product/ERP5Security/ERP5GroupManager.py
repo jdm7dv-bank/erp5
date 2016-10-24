@@ -25,6 +25,7 @@ from Products.ERP5Type.Cache import CachingMethod
 from Products.ERP5Type.ERP5Type \
   import ERP5TYPE_SECURITY_GROUP_ID_GENERATION_SCRIPT
 from Products.ERP5Type.UnrestrictedMethod import UnrestrictedMethod
+from Products.ZSQLCatalog.SQLCatalog import SimpleQuery
 from ZODB.POSException import ConflictError
 
 import sys
@@ -86,7 +87,7 @@ class ERP5GroupManager(BasePlugin):
       return ()
 
     @UnrestrictedMethod
-    def _getGroupsForPrincipal(user_name, path):
+    def _getGroupsForPrincipal(user_id, path):
       security_category_dict = {} # key is the base_category_list,
                                   # value is the list of fetched categories
       security_group_list = []
@@ -117,9 +118,19 @@ class ERP5GroupManager(BasePlugin):
           security_definition_list = mapping_method()
 
         # get the person from its login - no security check needed
-        person_object = self.erp5_users.getPersonByReference(user_name)
-        if person_object is None: # no person is linked to this user login
+        user_list = self.searchUsers(id=user_id, exact_match=True):
+        if len(user_list) != 1:
           return ()
+        user, = user_list
+        if 'path' in user:
+          path = user['path']
+        else:
+          # BBB: older ERP5 Eser enumerator, not supporting ERP5 Login
+          # documents.
+          user_list = self.getPortalObject().portal_catalog.unrestrictedSearchResults(
+            portal_type="Person", query=SimpleQuery(reference=user_name))
+          path = user_list[0].path
+        person_object = self.getPortalObject().unrestrictedTraverse(path)
 
         # Fetch category values from defined scripts
         for (method_name, base_category_list) in security_definition_list:
@@ -133,7 +144,7 @@ class ERP5GroupManager(BasePlugin):
             # Currently, passing portal_type='' (instead of 'Person')
             # is the only way to make the difference.
             security_category_list.extend(
-              method(base_category_list, user_name, person_object, '')
+              method(base_category_list, user_id, person_object, '')
             )
           except ConflictError:
             raise
@@ -176,7 +187,7 @@ class ERP5GroupManager(BasePlugin):
                                              cache_factory='erp5_content_short')
 
     return _getGroupsForPrincipal(
-                user_name=principal.getId(),
+                user_id=principal.getId(),
                 path=self.getPhysicalPath())
 
 
