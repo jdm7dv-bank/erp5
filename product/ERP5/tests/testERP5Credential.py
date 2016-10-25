@@ -409,7 +409,7 @@ class TestERP5Credential(ERP5TypeTestCase):
     self._assertUserExists('homie', 'secret')
     self.login('homie')
     from AccessControl import getSecurityManager
-    self.assertEqual(str(getSecurityManager().getUser()), 'homie')
+    self.assertEqual(str(getSecurityManager().getUser().getIdOrUserName()), 'homie')
 
   def stepCreateCredentialUpdate(self, sequence=None, sequence_list=None, **kw):
     '''
@@ -611,7 +611,7 @@ class TestERP5Credential(ERP5TypeTestCase):
     self._assertUserExists('barney-login', 'secret')
     self.login('barney')
     from AccessControl import getSecurityManager
-    self.assertEqual(str(getSecurityManager().getUser()), 'barney')
+    self.assertEqual(str(getSecurityManager().getUser().getIdOrUserName()), 'barney')
 
     self.login()
     # create a credential recovery

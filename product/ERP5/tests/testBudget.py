@@ -128,7 +128,7 @@ class TestBudget(ERP5TypeTestCase):
     # cell and setting cell properties.
     form = budget_line.BudgetLine_view
     self.portal.REQUEST.other.update(
-        dict(AUTHENTICATED_USER=getSecurityManager().getUser(),
+        dict(AUTHENTICATED_USER=getSecurityManager().getUser().getIdOrUserName(),
 
              field_membership_criterion_base_category_list=
         form.membership_criterion_base_category_list.get_value('default'),
@@ -243,7 +243,7 @@ class TestBudget(ERP5TypeTestCase):
 
     form = budget_line.BudgetLine_view
     self.portal.REQUEST.other.update(
-        dict(AUTHENTICATED_USER=getSecurityManager().getUser(),
+        dict(AUTHENTICATED_USER=getSecurityManager().getUser().getIdOrUserName(),
 
              field_membership_criterion_base_category_list=
         form.membership_criterion_base_category_list.get_value('default'),
@@ -339,7 +339,7 @@ class TestBudget(ERP5TypeTestCase):
     # cell and setting cell properties.
     form = budget_line.BudgetLine_view
     self.portal.REQUEST.other.update(
-        dict(AUTHENTICATED_USER=getSecurityManager().getUser(),
+        dict(AUTHENTICATED_USER=getSecurityManager().getUser().getIdOrUserName(),
 
              field_membership_criterion_base_category_list=
         form.membership_criterion_base_category_list.get_value('default'),
@@ -500,7 +500,7 @@ class TestBudget(ERP5TypeTestCase):
     # cell and setting cell properties.
     form = budget_line.BudgetLine_view
     self.portal.REQUEST.other.update(
-        dict(AUTHENTICATED_USER=getSecurityManager().getUser(),
+        dict(AUTHENTICATED_USER=getSecurityManager().getUser().getIdOrUserName(),
 
              field_membership_criterion_base_category_list=
         form.membership_criterion_base_category_list.get_value('default'),
@@ -608,7 +608,7 @@ class TestBudget(ERP5TypeTestCase):
 
     form = budget_line.BudgetLine_view
     self.portal.REQUEST.other.update(
-        dict(AUTHENTICATED_USER=getSecurityManager().getUser(),
+        dict(AUTHENTICATED_USER=getSecurityManager().getUser().getIdOrUserName(),
 
              field_membership_criterion_base_category_list=
         form.membership_criterion_base_category_list.get_value('default'),
@@ -715,7 +715,7 @@ class TestBudget(ERP5TypeTestCase):
 
     form = budget_line.BudgetLine_view
     self.portal.REQUEST.other.update(
-        dict(AUTHENTICATED_USER=getSecurityManager().getUser(),
+        dict(AUTHENTICATED_USER=getSecurityManager().getUser().getIdOrUserName(),
 
              field_membership_criterion_base_category_list=
         form.membership_criterion_base_category_list.get_value('default'),
@@ -824,7 +824,7 @@ class TestBudget(ERP5TypeTestCase):
 
     form = budget_line.BudgetLine_view
     self.portal.REQUEST.other.update(
-        dict(AUTHENTICATED_USER=getSecurityManager().getUser(),
+        dict(AUTHENTICATED_USER=getSecurityManager().getUser().getIdOrUserName(),
 
              field_membership_criterion_base_category_list=
         form.membership_criterion_base_category_list.get_value('default'),
@@ -941,7 +941,7 @@ class TestBudget(ERP5TypeTestCase):
     # cell and setting cell properties.
     form = budget_line.BudgetLine_view
     self.portal.REQUEST.other.update(
-        dict(AUTHENTICATED_USER=getSecurityManager().getUser(),
+        dict(AUTHENTICATED_USER=getSecurityManager().getUser().getIdOrUserName(),
 
              field_membership_criterion_base_category_list=
         form.membership_criterion_base_category_list.get_value('default'),
@@ -1089,7 +1089,7 @@ class TestBudget(ERP5TypeTestCase):
     # cell and setting cell properties.
     form = budget_line.BudgetLine_view
     self.portal.REQUEST.other.update(
-        dict(AUTHENTICATED_USER=getSecurityManager().getUser(),
+        dict(AUTHENTICATED_USER=getSecurityManager().getUser().getIdOrUserName(),
 
              field_membership_criterion_base_category_list=
         form.membership_criterion_base_category_list.get_value('default'),
@@ -1239,7 +1239,7 @@ class TestBudget(ERP5TypeTestCase):
     # cell and setting cell properties.
     form = budget_line.BudgetLine_view
     self.portal.REQUEST.other.update(
-        dict(AUTHENTICATED_USER=getSecurityManager().getUser(),
+        dict(AUTHENTICATED_USER=getSecurityManager().getUser().getIdOrUserName(),
 
              field_membership_criterion_base_category_list=
         form.membership_criterion_base_category_list.get_value('default'),
@@ -1372,7 +1372,7 @@ class TestBudget(ERP5TypeTestCase):
 
     form = budget_line.BudgetLine_view
     self.portal.REQUEST.other.update(
-        dict(AUTHENTICATED_USER=getSecurityManager().getUser(),
+        dict(AUTHENTICATED_USER=getSecurityManager().getUser().getIdOrUserName(),
 
              field_membership_criterion_base_category_list=
         form.membership_criterion_base_category_list.get_value('default'),
@@ -1466,7 +1466,7 @@ class TestBudget(ERP5TypeTestCase):
 
     form = budget_line.BudgetLine_view
     self.portal.REQUEST.other.update(
-        dict(AUTHENTICATED_USER=getSecurityManager().getUser(),
+        dict(AUTHENTICATED_USER=getSecurityManager().getUser().getIdOrUserName(),
 
              field_membership_criterion_base_category_list=
         form.membership_criterion_base_category_list.get_value('default'),
@@ -1552,7 +1552,7 @@ class TestBudget(ERP5TypeTestCase):
 
     form = budget_line.BudgetLine_view
     self.portal.REQUEST.other.update(
-        dict(AUTHENTICATED_USER=getSecurityManager().getUser(),
+        dict(AUTHENTICATED_USER=getSecurityManager().getUser().getIdOrUserName(),
 
              field_membership_criterion_base_category_list=
         form.membership_criterion_base_category_list.get_value('default'),
@@ -1720,7 +1720,7 @@ class TestBudget(ERP5TypeTestCase):
     # cell and setting cell properties.
     form = budget_line.BudgetLine_view
     self.portal.REQUEST.other.update(
-        dict(AUTHENTICATED_USER=getSecurityManager().getUser(),
+        dict(AUTHENTICATED_USER=getSecurityManager().getUser().getIdOrUserName(),
 
              field_membership_criterion_base_category_list=
         form.membership_criterion_base_category_list.get_value('default'),
@@ -1866,7 +1866,7 @@ class TestBudget(ERP5TypeTestCase):
 
     form = budget_line.BudgetLine_view
     self.portal.REQUEST.other.update(
-        dict(AUTHENTICATED_USER=getSecurityManager().getUser(),
+        dict(AUTHENTICATED_USER=getSecurityManager().getUser().getIdOrUserName(),
 
              field_membership_criterion_base_category_list=
         form.membership_criterion_base_category_list.get_value('default'),
@@ -2081,7 +2081,7 @@ class TestBudget(ERP5TypeTestCase):
 
     form = budget_line.BudgetLine_view
     self.portal.REQUEST.other.update(
-        dict(AUTHENTICATED_USER=getSecurityManager().getUser(),
+        dict(AUTHENTICATED_USER=getSecurityManager().getUser().getIdOrUserName(),
 
              field_membership_criterion_base_category_list=
         form.membership_criterion_base_category_list.get_value('default'),
