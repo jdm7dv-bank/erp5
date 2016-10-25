@@ -32,7 +32,7 @@ import sys
 
 from zLOG import LOG, WARNING
 
-from ERP5UserManager import SUPER_USER, getUserByLogin
+from ERP5UserManager import SUPER_USER
 
 # It can be useful to set NO_CACHE_MODE to 1 in order to debug
 # complex security issues related to caching groups. For example,
