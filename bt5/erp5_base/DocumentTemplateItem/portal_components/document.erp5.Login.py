@@ -78,7 +78,7 @@ class Login(XMLObject, LoginAccountProviderMixin, EncryptedPasswordMixin):
       if user_list:
         user, = user_list
         login, = user['login_list']
-        if login['path'] != self.getPath():
+        if login['path'] not in (self.getPath(), self.getParentValue().getPath()):
           raise RuntimeError('user id %s already exist' % (value, ))
       # Check that there is no reindexation related to reference indexation
       if portal.portal_activities.countMessageWithTag(tag):
