@@ -153,9 +153,10 @@ class PasswordTool(BaseTool):
       # We use checked_permission to prevent errors when trying to acquire
       # email from organisation
       user, = user_list
-      email_value = self.getPortalObject().unrestrictedTraverse(
-        user['path']
-      ).getDefaultEmailValue(checked_permission='Access content information')
+      user_value = self.getPortalObject().unrestrictedTraverse(
+        user['path'])
+      email_value = user_value.getDefaultEmailValue(
+        checked_permission='Access content information')
       if email_value is None or not email_value.asText():
         msg = translateString(
             "User ${user} does not have an email address, please contact site "
@@ -203,7 +204,7 @@ class PasswordTool(BaseTool):
         'language':notification_message.getLanguage(),
       }
 
-    self.getPortalObject().portal_notifications.sendMessage(sender=sender, recipient=[user,],
+    self.getPortalObject().portal_notifications.sendMessage(sender=sender, recipient=[user_value,],
                                                             subject=subject, message=message,
                                                             store_as_event=store_as_event,
                                                             message_text_format=message_text_format,
