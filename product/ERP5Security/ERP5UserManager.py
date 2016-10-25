@@ -292,8 +292,9 @@ class ERP5UserManager(BasePlugin):
     if isinstance(id, str):
       id = (id,)
 
-    unrestrictedSearchResults = self.getPortalObject(
-      ).portal_catalog.unrestrictedSearchResults
+    portal = self.getPortalObject()
+    unrestrictedSearchResults = portal.portal_catalog.unrestrictedSearchResults
+    unrestrictedTraverse = portal.unrestrictedTraverse
     searchUser = lambda **kw: unrestrictedSearchResults(
       select_list=('reference', ),
       portal_type='Person',
@@ -323,7 +324,8 @@ class ERP5UserManager(BasePlugin):
           },
           limit=max_results,
         )
-        if requested(x['reference'])
+        if requested(x['reference']) and not unrestrictedTraverse(
+            x['path']).objectValues(portal_type=self.getPortalLoginTypeList())
       ]
     else:
       user_list = []
