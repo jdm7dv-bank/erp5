@@ -6,7 +6,7 @@ new_password = request.get("new_password")
 former_password = request.get("current_password")
 
 user = getSecurityManager().getUser()
-person, = context.acl_users.searchUsers(login=user, exact_match=True)
+person, = context.acl_users.searchUsers(id=user.getId(), exact_match=True)
 person = context.getPortalObject().restrictedTraverse(person['path'])
 
 if not person.checkPassword(former_password):
