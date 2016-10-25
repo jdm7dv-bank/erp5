@@ -211,9 +211,10 @@ class ERP5User(PropertiedUser):
     ) if 'path' in x]
     if user_list:
       user, = user_list
-      return self._user_value = self.getPortalObject().restrictedTraverse(
+      self._user_value = self.getPortalObject().restrictedTraverse(
         user['path'],
       )
+      return self._user_value
 
   def getLoginValue(self):
     """ -> login document
@@ -230,9 +231,10 @@ class ERP5User(PropertiedUser):
     if user_list:
       user, = user_list
       login, = user['login_list']
-      return self._login_value = self.getPortalObject().restrictedTraverse(
+      self._login_value = self.getPortalObject().restrictedTraverse(
         login['path'],
       )
+      return self._login_value
 
   def getLoginValueList(self, portal_type=None, limit=None):
     """ -> list of login documents
