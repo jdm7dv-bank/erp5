@@ -73,12 +73,12 @@ class Login(XMLObject, LoginAccountProviderMixin, EncryptedPasswordMixin):
       # Check that there no existing user
       user_list = [x for x in portal.acl_users.searchUsers(
         exact_match=True,
-        login=self.getReference(),
+        login=value,
       ) if 'login_list' in x]
       if user_list:
         user, = user_list
         login, = user['login_list']
-        if login['path'] != my_path:
+        if login['path'] != self.getPath():
           raise RuntimeError('user id %s already exist' % (value, ))
       # Check that there is no reindexation related to reference indexation
       if portal.portal_activities.countMessageWithTag(tag):

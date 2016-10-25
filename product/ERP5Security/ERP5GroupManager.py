@@ -118,17 +118,20 @@ class ERP5GroupManager(BasePlugin):
           security_definition_list = mapping_method()
 
         # get the person from its login - no security check needed
-        user_list = self.searchUsers(id=user_id, exact_match=True):
-        if len(user_list) != 1:
+        user_list = [
+          x for x in self.searchUsers(id=user_id, exact_match=True)
+          if 'path' in x
+        ]
+        if not user_list:
           return ()
         user, = user_list
         if 'path' in user:
           path = user['path']
         else:
-          # BBB: older ERP5 Eser enumerator, not supporting ERP5 Login
+          # BBB: older ERP5 User enumerator, not supporting ERP5 Login
           # documents.
           user_list = self.getPortalObject().portal_catalog.unrestrictedSearchResults(
-            portal_type="Person", query=SimpleQuery(reference=user_name))
+            portal_type="Person", query=SimpleQuery(reference=user_id))
           path = user_list[0].path
         person_object = self.getPortalObject().unrestrictedTraverse(path)
 
