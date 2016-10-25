@@ -118,7 +118,7 @@ class ERP5GroupManager(BasePlugin):
           security_definition_list = mapping_method()
 
         # get the person from its login - no security check needed
-        user_list = self.searchUsers(id=user_id, exact_match=True):
+        user_list = self.searchUsers(id=user_id, exact_match=True)
         if not user_list:
           return ()
         user, = user_list
