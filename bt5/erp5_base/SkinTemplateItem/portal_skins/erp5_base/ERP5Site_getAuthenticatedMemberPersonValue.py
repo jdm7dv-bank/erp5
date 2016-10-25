@@ -3,7 +3,7 @@ Returns None if no corresponding person, for example when not using ERP5Security
 """
 portal = context.getPortalObject()
 if user_name is None:
-  return portal.portal_membership.getAuthenticatedMember().getUser().getUserValue()
+  return portal.portal_membership.getAuthenticatedMember().getUserValue()
 user_list = [x for x in portal.acl_users.searchUsers(
   exact_match=True,
   id=user_name,
